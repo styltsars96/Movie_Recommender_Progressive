@@ -1,0 +1,76 @@
+body {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    background-color: #d7eff4
+}
+
+input{
+    background-color: white;
+}
+
+input[type=text]{
+  width: 60%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+input[type=button] {
+  width: 25%;
+  background-color: #3b5dab;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+input[type=button]:hover {
+  background-color: #011d49;
+}
+
+.ratingInput{
+    border: 3px solid #ccc;
+    border-radius: 4px;
+    background-color:#e5e5e5;
+    transition: 0.5s;
+}
+
+.ratingInput:hover {
+    border: 3px solid #555;
+}
+
+.movieTable {
+    background-color: white;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.movieTable td, .movieTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.movieTable tr {transition: 0.5s;}
+
+.movieTable tr:nth-child(even), .movieRecommend tr:nth-child(even) {background-color: #f2f2f2;}
+
+.movieTable tr:hover {background-color: #ddd;}
+
+.movieTable th , .movieRecommend th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #3b5dab;
+    color: white;
+}

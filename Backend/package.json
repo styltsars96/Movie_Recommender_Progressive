@@ -1,0 +1,27 @@
+{
+  "name": "web_dev_2019_18106",
+  "version": "1.0.0",
+  "description": "Web development excercise. Frontend for collaborative filtering and a REST API at the backend serving contents of the database",
+  "main": "api_backend.js",
+  "scripts": {
+    "start": "node api_backend.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://styltsars96@bitbucket.org/styltsars96/webdevexc.git"
+  },
+  "keywords": [
+    "collaborative",
+    "filtering",
+    "movies",
+    "ratings"
+  ],
+  "author": "Stylianos Tsarsitalidis",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/styltsars96/webdevexc#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
+}

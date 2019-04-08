@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Movie Recommendations App</title>
+    <link rel="shortcut icon" href="./favicon.png" type="image/png">
+    <link rel="stylesheet" href="./style.css" class="rel">
+    <script type="text/ecmascript" src="./url.js"></script>
+    <script type="text/ecmascript" src="./toolbox.js"></script>
+    <script type="text/ecmascript" src="./accessDB.js"></script>
+    <script type="text/ecmascript" src="./accessAPI.js"></script>
+    <script type="text/ecmascript" src="./core.js"></script>
+</head>
+
+<body>
+    <div id="movieSearch">
+        <h2>Search movies!</h2>
+        <p>
+            <label for="searchInput">Title:</label>
+            <input type="text" id="searchInput" placeholder="Your movie...">
+            <input type="button" id="searchButton" value="Search!">
+        </p>
+    </div>
+    <form id="searchResults">
+        <!-- Container for movies fetched by the search action + rating input -->
+    </form> <br />
+    <input type="button" id="recommendationsButton" value="Get movie recommendations!">
+    <input type="button" id="refreshRecButton" value="Refresh ratings & recommendations!">
+    (Right button is slower, but better.)
+    <div id="recommendations">
+        <!-- Container for movie recommendations -->
+    </div>
+</body>
+
+<!-- Add susequent event listeners at the end -->
+<script type="text/ecmascript">
+    setListeners();
+</script>
+
+</html>
