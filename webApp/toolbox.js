@@ -78,7 +78,13 @@ const array2table = (arr, classes, bodyId, isDom, cols, customHeader) => {
     let bodyRows = '';
     const parser = isDom ? new DOMParser() : undefined;
     if (customHeader) { //Custom header row
-        headerRow = customHeader;
+        if(typeof customHeader == "string"){
+            headerRow = customHeader;
+        } else if( Array.isArray(customHeader)) {
+            customHeader.map(col => {
+                headerRow = `${headerRow} <th> ${capitalizeFirstLetter(col).replace('_',' ')} </th>`;
+            });
+        }
     } else cols.map(col => { //Make header Row
         headerRow = `${headerRow} <th> ${capitalizeFirstLetter(col).replace('_',' ')} </th>`;
     });
@@ -106,7 +112,7 @@ const array2table = (arr, classes, bodyId, isDom, cols, customHeader) => {
         let id;
         cols.map(colName => { //For each column
             if (colName == 'id') {
-                id = row[colname];
+                id = row[colName];
             } else thisRow += `<td> ${row[colName]} </td>`;
         });
         if (id) {
@@ -122,8 +128,8 @@ const array2table = (arr, classes, bodyId, isDom, cols, customHeader) => {
         return table;
     } else {
         bodyId = bodyId || '';
-        return `<table class=${classes}> <thead><tr>${headerRow}</tr></thead>` +
-            `<tbody ${bodyId} >${bodyRows}</tbody></table>`;
+        return `<table class="${classes}"> <thead><tr>${headerRow}</tr></thead>` +
+            `<tbody id="${bodyId}" >${bodyRows}</tbody></table>`;
     }
 };
 

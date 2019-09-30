@@ -1,3 +1,5 @@
+-- LOAD INITIAL DATA!
+
 -- Test mostly, not actually needed. For links.csv
 CREATE TABLE links (
 	movieId INT(6) unsigned PRIMARY KEY,
@@ -11,13 +13,13 @@ CREATE TABLE links (
 -- Load data to links.csv
 LOAD data
 low_priority -- Just make sure that it does not interrupt another operation :p
-INFILE '/home/styltsars/staticFiles/links.csv'
-REPLACE 
+INFILE '/home/styltsars/staticFiles/links.csv'  -- ADD CSV
+REPLACE
 INTO TABLE `web_dev`.`links`
 FIELDS TERMINATED BY ',' optionally enclosed by '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 LINES -- ignore header row. 
-(`movieId`, `imdbId`, `tmdbId`); 
+IGNORE 1 LINES -- ignore header row.
+(`movieId`, `imdbId`, `tmdbId`);
 
 CREATE TABLE links (
 	movieId INT(6) unsigned PRIMARY KEY,
@@ -35,13 +37,13 @@ CREATE TABLE movies (
 
 LOAD data
 low_priority -- Just make sure that it does not interrupt another operation :p
-INFILE '/home/styltsars/staticFiles/movies.csv'
-REPLACE 
+INFILE '/home/styltsars/staticFiles/movies.csv'  -- ADD CSV
+REPLACE
 INTO TABLE `web_dev`.`movies`
 FIELDS TERMINATED BY ',' optionally enclosed by '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 LINES -- ignore header row. 
-(`movieId`, `title`, `genres`); 
+IGNORE 1 LINES -- ignore header row.
+(`movieId`, `title`, `genres`);
 
 -- ratings.csv
 -- drop table ratings;
@@ -54,13 +56,13 @@ create table ratings (
 
 LOAD data
 low_priority -- Just make sure that it does not interrupt another operation :p
-INFILE '/home/styltsars/staticFiles/ratings.csv'
-REPLACE 
+INFILE '/home/styltsars/staticFiles/ratings.csv'  -- ADD CSV
+REPLACE
 INTO TABLE `web_dev`.`ratings`
 FIELDS TERMINATED BY ',' optionally enclosed by '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 LINES -- ignore header row. 
-(`userId`, `movieId`, `rating`, `timestamp`); 
+IGNORE 1 LINES -- ignore header row.
+(`userId`, `movieId`, `rating`, `timestamp`);
 
 -- tags.csv
 -- drop table tags;
@@ -73,36 +75,12 @@ create table tags (
 
 LOAD data
 low_priority -- Just make sure that it does not interrupt another operation :p
-INFILE '/home/styltsars/staticFiles/tags.csv'
-REPLACE 
+INFILE '/home/styltsars/staticFiles/tags.csv'  -- ADD CSV
+REPLACE
 INTO TABLE `web_dev`.`tags`
 FIELDS TERMINATED BY ',' optionally enclosed by '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 LINES -- ignore header row. 
-(`userId`, `movieId`, `tag`, `timestamp`); 
-
--- Tests
-select * from links;
-select * from movies;
-select * from ratings;
-select * from tags;
+IGNORE 1 LINES -- ignore header row.
+(`userId`, `movieId`, `tag`, `timestamp`);
 
 commit;
-
--- Dev Tests
-select * 
-from ratings 
-where userId = 456;
-
-select * 
-from movies 
-where movieId = 456;
-
-select *
-from ratings
-where movieId = 4 or movieId = 5 or movieId = 12;
-
-select *
-from movies
-where title like '%troy %';
-

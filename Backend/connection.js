@@ -1,19 +1,13 @@
 /**
  * Module for connection: API with MySQL DB!
  */
-const dbIP = require('./url.js');
+const dbConn = require('./database.js');
 
 const db = {
     connection: null,
     init: () => {
         const mysql = require('mysql');
-        this.connection = mysql.createConnection({
-            host: dbIP,
-            user: 'nodejs',
-            password: 'webdev_2018_web',
-            database: 'web_dev',
-            port: 3306
-        });
+        this.connection = mysql.createConnection(dbConn);
         this.connection.connect();
     },
     /**
@@ -31,7 +25,6 @@ const db = {
                 timeout: 30000,
                 values: values
             }, function(error, results, fields) {
-				// console.log(JSON.stringify(fields)) //Test
                 if (error) reject(error);
                 resolve(results);
             });

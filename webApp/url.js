@@ -1,1 +1,1 @@
-var staticURL = 'http://localhost:3000'; // Latest IP for API!
+var staticURL = ''; // ADD Latest IP for API!
